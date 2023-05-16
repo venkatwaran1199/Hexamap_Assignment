@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/welcome">
+
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.hexamap_assignment.ui.fragment.maps.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_add2"
+            app:destination="@id/add2" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcome"
+        android:name="com.example.hexamap_assignment.ui.fragment.welcome.Welcome"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcome_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/add2"
+        android:name="com.example.hexamap_assignment.ui.fragment.add.add"
+        android:label="fragment_add"
+        tools:layout="@layout/fragment_add" >
+        <action
+            android:id="@+id/action_add2_to_successmaps"
+            app:destination="@id/successmaps"
+            app:popUpTo="@id/add2"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/successmaps"
+        android:name="com.example.hexamap_assignment.ui.fragment.successmaps"
+        android:label="fragment_successmaps"
+        tools:layout="@layout/fragment_successmaps" >
+        <argument
+            android:name="addeddata"
+            app:argType="com.example.hexamap_assignment.models.data.Add_Data"
+            app:nullable="true" />
+    </fragment>
+</navigation>
